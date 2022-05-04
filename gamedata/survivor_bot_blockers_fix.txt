@@ -1,0 +1,94 @@
+"Games"
+{
+	"left4dead"
+	{
+		"Addresses"
+		{
+			"NextBotTraversableTraceFilter vtable"
+			{
+				"windows"
+				{
+					"signature" "NextBotTraversableTraceFilter vtable"
+					"read" "8"
+				}
+
+				"linux"
+				{
+					"signature" "NextBotTraversableTraceFilter vtable"
+					"read" "0"
+					"offset" "8"
+				}
+			}
+		}
+
+		"Offsets"
+		{
+			"INextBot::MySurvivorBotPointer"
+			{
+				"linux"		"42"
+				"windows"	"41"
+			}
+		}
+
+		"Signatures"
+		{
+			"NextBotTraversableTraceFilter vtable"
+			{
+				"library"	"server"
+				"linux"		"@_ZTV29NextBotTraversableTraceFilter"
+				"windows"	"\xD9\xC9\x8B\xCE\xC7\x44\x24\x6C"
+				// D9 C9 8B CE C7 44 24 6C
+				// Search for string "HulkZombie.StartLedgeClimb", select 2nd xref and look for this, above string:
+				// fxch    st(1)
+				// mov     ecx, esi
+				// mov     [esp+0E4h+var_78], offset off_XXXXXXXX	<- vtable
+			}
+		}
+	}
+
+	"left4dead2"
+	{
+		"Addresses"
+		{
+			"NextBotTraversableTraceFilter vtable"
+			{
+				"windows"
+				{
+					"signature" "NextBotTraversableTraceFilter vtable"
+					"read" "11"
+				}
+
+				"linux"
+				{
+					"signature" "NextBotTraversableTraceFilter vtable"
+					"read" "0"
+					"offset" "8"
+				}
+			}
+		}
+
+		"Offsets"
+		{
+			"INextBot::MySurvivorBotPointer"
+			{
+				"linux"		"47"
+				"windows"	"46"
+			}
+		}
+
+		"Signatures"
+		{
+			"NextBotTraversableTraceFilter vtable"
+			{
+				"library"	"server"
+				"linux"		"@_ZTV29NextBotTraversableTraceFilter"
+				"windows"	"\xF3\x0F\x10\x45\xE4\x0F\x2F\xC8\xC7\x45\xB8"
+				// F3 0F 10 45 E4 0F 2F C8 C7 45 B8
+				// Search for string "HulkZombie.StartLedgeClimb", select 2nd xref and look for this, above string:
+				// movss   xmm0, [ebp+var_1C]
+				// comiss  xmm1, xmm0
+				// mov     [ebp+var_48], offset off_XXXXXXXX	<- vtable
+			}
+		}
+	}
+}
